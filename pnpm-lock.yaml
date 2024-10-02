@@ -1,0 +1,60 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    devDependencies:
+      '@rolandpeelen/rewatch':
+        specifier: ^1.0.9
+        version: 1.0.9
+      rescript:
+        specifier: '*'
+        version: 11.1.4
+
+  packages/dep01:
+    dependencies:
+      '@testrepo/dep02':
+        specifier: '*'
+        version: link:../dep02
+      rescript:
+        specifier: '*'
+        version: 11.1.4
+
+  packages/dep02:
+    dependencies:
+      rescript:
+        specifier: '*'
+        version: 11.1.4
+
+  packages/main:
+    dependencies:
+      '@testrepo/dep01':
+        specifier: '*'
+        version: link:../dep01
+      rescript:
+        specifier: '*'
+        version: 11.1.4
+
+  packages/new-namespace:
+    dependencies:
+      rescript:
+        specifier: '*'
+        version: 11.1.4
+
+packages:
+
+  /@rolandpeelen/rewatch@1.0.9:
+    resolution: {integrity: sha512-OqHtmQBALlqiUqpP3ZaABAGxkbU7ErbeOzedaRSFyyKM2IWepWFBiTizHxKC+eqpnqUYsVLnlCbmKtSS0xGyew==}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
+  /rescript@11.1.4:
+    resolution: {integrity: sha512-0bGU0bocihjSC6MsE3TMjHjY0EUpchyrREquLS8VsZ3ohSMD+VHUEwimEfB3kpBI1vYkw3UFZ3WD8R28guz/Vw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    requiresBuild: true
